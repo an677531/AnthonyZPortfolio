@@ -197,9 +197,6 @@ function About() {
 
                 <div className="about-section about-personal">
                     <h2>Outside of Work</h2>
-                    <div className="about-photos">
-                        <Photos />
-                    </div>
                     <p>
                         Curiosity remains the common thread. I create traditional and
                         digital artwork, write and illustrate original fantasy worlds,
@@ -207,12 +204,17 @@ function About() {
                         learning through cooking, caring for plants, and taking things
                         apart to understand how they work.
                     </p>
+                </div>
+                <div className="about-photos">
+                    <Photos />
+                </div>
+                <div className="personal-links">
 
-                    <div className="personal-links">
-                        <InstagramPost />
-                        <iframe
-                            src="https://open.spotify.com/embed/playlist/4C2qVH8VGoXAIhihzob5ib?utm_source=generator&si=0caf23cc268e4f6b" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                    </div>
+                    <iframe
+                        src="https://open.spotify.com/embed/playlist/4C2qVH8VGoXAIhihzob5ib?utm_source=generator&si=0caf23cc268e4f6b" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+                <div className="instagram">
+                    <InstagramPost />
                 </div>
 
                 <div className="about-closing">
