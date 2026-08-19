@@ -116,27 +116,25 @@ import Photos from './Photos.jsx';
 import InstagramPost from "./Insta.jsx";
 function About() {
     return (
-        <section id="about">
+        <section id="about" className="hero">
             <div className="container">
 
                 <div className="about-intro">
-                    <div className="about-intro-text">
-                        <p className="bio-top">
-                            Hi, I'm <strong>Anthony</strong>. I'm a <strong>maker</strong>.
-                        </p>
+                    <p className="bio-top">
+                        Hi, I'm <strong>Anthony</strong>. I'm a <strong>maker</strong>.
+                    </p>
 
-                        <p>
-                            The most compelling digital experiences are built where{' '}
-                            <strong>creativity</strong> and <strong>technology</strong> converge.
-                        </p>
+                    <p>
+                        The most compelling digital experiences are built where{' '}
+                        <strong>creativity</strong> and <strong>technology</strong> converge.
+                    </p>
 
-                        <p>
-                            I'm a <strong>Digital Media</strong> graduate from the University
-                            of Central Florida with a multidisciplinary background spanning{' '}
-                            <strong>front-end development</strong>, <strong>visual design</strong>,
-                            and digital media.
-                        </p>
-                    </div>
+                    <p>
+                        I'm a <strong>Digital Media</strong> graduate from the University
+                        of Central Florida with a multidisciplinary background spanning{' '}
+                        <strong>front-end development</strong>, <strong>visual design</strong>,
+                        and digital media.
+                    </p>
 
                 </div>
 
@@ -194,7 +192,10 @@ function About() {
                         multiple perspectives.
                     </p>
                 </div>
+                <div className="personal-links">
 
+                    <iframe src="https://open.spotify.com/embed/playlist/2vHEICNnkB3kioFgdaRzzA?utm_source=generator&theme=0&si=8c724779f05d4b46" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
                 <div className="about-section about-personal">
                     <h2>Outside of Work</h2>
                     <p>
@@ -208,11 +209,7 @@ function About() {
                 <div className="about-photos">
                     <Photos />
                 </div>
-                <div className="personal-links">
 
-                    <iframe
-                        src="https://open.spotify.com/embed/playlist/4C2qVH8VGoXAIhihzob5ib?utm_source=generator&si=0caf23cc268e4f6b" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                </div>
                 <div className="instagram">
                     <InstagramPost />
                 </div>

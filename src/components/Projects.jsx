@@ -59,7 +59,7 @@
  */
 function Projects({ onNavigate }) {
     return (
-        <section id="projects">
+        <section id="projects" className="hero">
 
             <div className="container">
 
@@ -79,7 +79,7 @@ function Projects({ onNavigate }) {
 
                 <button
                     className="project-button"
-                    onClick={() => onNavigate("project-template")}
+                    onClick={() => onNavigate("project-recipe-jungle")}
                 >
                     Recipe Jungle
                 </button>
