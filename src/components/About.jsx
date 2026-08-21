@@ -32,7 +32,7 @@ function About() {
 
                 <div className="intro">
                     <h1 className="bio-title">
-                        Who I am
+                        Who I am.
                     </h1>
 
                     <div className="bio-content">
@@ -60,7 +60,7 @@ function About() {
 
                     <div className="skills-header">
 
-                        <p id="skills-heading">
+                        <p className="accentAD">
                             Skills
                         </p>
 
@@ -141,16 +141,40 @@ function About() {
 
                 </div>
                 <div className="spotify">
-                    <span className="accentB"><strong><p>Music I Listen to On Repeat</p></strong></span>
+                    <span className="accentBD"><strong><p> Music I Listen to On Repeat</p></strong></span>
                     <iframe src="https://open.spotify.com/embed/playlist/2vHEICNnkB3kioFgdaRzzA?utm_source=generator&theme=0&si=8c724779f05d4b46" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 </div>
                 <div className="instagram">
                     <InstagramPost />
                 </div>
                 <div className="current-project">
-                    <span className="accentB"><strong><p>My Current Side-Project</p></strong></span>
+                    <span className="accentBD">
+                        <strong>
+                            <p>My Current Side-Project</p>
+                        </strong>
+                    </span>
+
                     <p>Board game collection manager.</p>
-                    <p>Checkout my work progress <a className="reg-link" href="https://github.com/an677531">here</a></p>
+
+                    <p>
+                        I'm building a small tool to keep track of my board games,
+                        what I've played, what I own, and what I want to get.
+                    </p>
+
+                    <p>
+                        It's still a work in progress, but I'm using it as an excuse
+                        to make more.
+                    </p>
+
+                    <p>
+                        Check out my work progress{" "}
+                        <a
+                            className="reg-link"
+                            href="https://github.com/an677531"
+                        >
+                            here.
+                        </a>
+                    </p>
                 </div>
 
             </div>

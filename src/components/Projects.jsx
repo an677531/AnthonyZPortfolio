@@ -1,7 +1,6 @@
 function Projects({ onNavigate }) {
     return (
         <section id="projects" className="hero">
-
             <div className="container">
 
                 <button
@@ -47,7 +46,6 @@ function Projects({ onNavigate }) {
                 </button>
 
             </div>
-
         </section>
     );
 }

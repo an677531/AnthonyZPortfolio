@@ -51,7 +51,7 @@ function Home() {
 
             <div className="home-grid">
 
-                <article className="home-card approach-card">
+                <div className="home-card approach-card">
 
                     <p className="accentBD">
                         Approach
@@ -63,7 +63,7 @@ function Home() {
                         <strong className="accentB">where disciplines intersect.</strong>
                     </p>
 
-                </article>
+                </div>
 
                 <div
                     className="home-card skills-card"
@@ -72,7 +72,7 @@ function Home() {
 
                     <div className="skills-header">
 
-                        <p className="accentBD">
+                        <p className="accentAD">
                             Skills
                         </p>
 
@@ -159,7 +159,7 @@ function Home() {
                     <div className="featured-project-header">
 
                         <div>
-                            <p className="card-label">
+                            <p className="card-label-a">
                                 Featured Project
                             </p>
                         </div>
@@ -179,12 +179,12 @@ function Home() {
                         <a href="#projects">View Project →</a>
                     </div>
                 </div>
-                <article className="home-card recipe-project-card">
+                <div className="home-card recipe-project-card">
 
                     <div className="featured-project-header">
 
                         <div>
-                            <p className="card-label">
+                            <p className="card-label-b">
                                 Featured Project
                             </p>
                         </div>
@@ -205,7 +205,7 @@ function Home() {
                         View Project →
                     </a>
 
-                </article>
+                </div>
 
 
             </div>
