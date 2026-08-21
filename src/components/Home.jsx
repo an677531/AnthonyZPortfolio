@@ -1,90 +1,215 @@
+import { useState } from "react";
+import heroImage from "../assets/anthony.png"
+
 function Home() {
 
+    const [skillFilter, setSkillFilter] = useState("all");
+
+    const skills = [
+        { name: "HTML 5", type: "developer" },
+        { name: "WordPress", type: "developer" },
+        { name: "CSS", type: "developer" },
+        { name: "Responsive Design", type: "developer" },
+        { name: "React", type: "developer" },
+        { name: "JavaScript", type: "developer" },
+        { name: "PHP", type: "developer" },
+
+        { name: "Adobe Creative Suite", type: "designer" },
+        { name: "Prototyping", type: "designer" },
+        { name: "Figma", type: "designer" },
+        { name: "UI/UX Design", type: "designer" },
+        { name: "AutoCAD", type: "designer" },
+        { name: "Illustration", type: "designer" },
+        { name: "Graphic Design", type: "designer" },
+        { name: "Branding", type: "designer" },
+        { name: "3D Modeling", type: "designer" },
+        { name: "CAD", type: "designer" },
+        { name: "Maya", type: "designer" },
+        { name: "Fusion 360", type: "designer" }
+    ];
+
     return (
-        <section id="home" className="hero">
-            <div className="container">
-                <div className="grid-item-intro">
-                    <p>Hi, I'm <strong>Anthony</strong>. I'm a <strong>Front-End Developer</strong> and <strong>Designer</strong></p>
-                    <p>A<strong> generalist</strong> by design, <strong>specialist</strong> by practice.</p>
+        <section id="home" className="home">
+            <div className="home-hero">
+                <div className="home-hero-content">
+                    <h1>
+                        Hi, I’m <strong className="accentA">Anthony.</strong><br />I’m a <strong className="accentA">Front-End</strong><br /><strong className="accentA">Developer</strong> and<br /><strong className="accentA">Designer</strong>
+                    </h1>
+                </div>
+                <div className="home-positioning">
+                    <p>
+                        A <strong>generalist</strong> by design,<strong> specialist</strong> by practice.
+                    </p>
+                </div>
+                <div className="home-portrait">
+                    <img
+                        src={heroImage}
+                        alt="Anthony"
+                    />
+                </div>
+            </div>
 
-                    <p>Honed fluency across <strong>visual design</strong> and <strong>front-end development</strong> supported by background in CAD and 3D modeling.</p>
+            <div className="home-grid">
 
-                    <p>The <strong>best solutions</strong> rarely stay in one lane - they exist <strong>where disciplines</strong> intersect.</p>
+                <article className="home-card approach-card">
+
+                    <p className="accentBD">
+                        Approach
+                    </p>
+
+                    <p className="approach-text">
+                        The <strong className="accentB">best solutions</strong> rarely stay
+                        in one lane - they exist{" "}
+                        <strong className="accentB">where disciplines intersect.</strong>
+                    </p>
+
+                </article>
+
+                <div
+                    className="home-card skills-card"
+                    aria-labelledby="skills-heading"
+                >
+
+                    <div className="skills-header">
+
+                        <p className="accentBD">
+                            Skills
+                        </p>
+
+                        <div
+                            className="skill-filters"
+                            role="group"
+                            aria-label="Filter skills"
+                        >
+
+                            <button
+                                type="button"
+                                className={
+                                    skillFilter === "designer"
+                                        ? "active"
+                                        : ""
+                                }
+                                onClick={() =>
+                                    setSkillFilter("designer")
+                                }
+                            >
+                                Designer
+                            </button>
+
+                            <button
+                                type="button"
+                                className={
+                                    skillFilter === "developer"
+                                        ? "active"
+                                        : ""
+                                }
+                                onClick={() =>
+                                    setSkillFilter("developer")
+                                }
+                            >
+                                Developer
+                            </button>
+
+                            <button
+                                type="button"
+                                className={
+                                    skillFilter === "all"
+                                        ? "active"
+                                        : ""
+                                }
+                                onClick={() =>
+                                    setSkillFilter("all")
+                                }
+                            >
+                                All In
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div className="skill-pills">
+
+                        {skills.map((skill) => {
+
+                            const isHighlighted =
+                                skillFilter === "all" ||
+                                skillFilter === skill.type;
+
+                            return (
+                                <span
+                                    className={`skill-pill ${skill.type} ${isHighlighted ? "highlighted" : "muted"
+                                        }`}
+                                    key={skill.name}
+                                >
+                                    {skill.name}
+                                </span>
+                            );
+
+                        })}
+
+                    </div>
+
                 </div>
 
-            </div>
-            <div className="desktop-iframe">
-                <iframe src="https://recipe-jungle.vercel.app/"></iframe>
-            </div>
-            <section className="about-skills" aria-labelledby="skills-heading">
 
-                <h2 id="skills-heading" className="about-section-title">
-                    Skills
-                </h2>
+                <div className="home-card featured-project-card">
 
-                <div className="skill-groups">
+                    <div className="featured-project-header">
 
-                    <div className="skill-group">
-                        <h3 className="skill-group-label">
-                            Frontend Development
-                        </h3>
-
-                        <ul className="skill-pills">
-                            <li className="skill-pill">HTML5</li>
-                            <li className="skill-pill">CSS3</li>
-                            <li className="skill-pill">JavaScript</li>
-                            <li className="skill-pill">React</li>
-                            <li className="skill-pill">WordPress</li>
-                            <li className="skill-pill">PHP</li>
-                        </ul>
+                        <div>
+                            <p className="card-label">
+                                Featured Project
+                            </p>
+                        </div>
                     </div>
 
-                    <div className="skill-group">
-                        <h3 className="skill-group-label">
-                            UI / UX
-                        </h3>
-
-                        <ul className="skill-pills">
-                            <li className="skill-pill">UI Design</li>
-                            <li className="skill-pill">UX Design</li>
-                            <li className="skill-pill">Responsive Design</li>
-                            <li className="skill-pill">Wireframing</li>
-                            <li className="skill-pill">Prototyping</li>
-                            <li className="skill-pill">Figma</li>
-                        </ul>
+                    <div className="featured-project-image">
+                        <iframe
+                            src="https://preserv-one.vercel.app/"
+                            title="Pantry Management System"
+                            loading="lazy"
+                        />
                     </div>
 
-                    <div className="skill-group">
-                        <h3 className="skill-group-label">
-                            Visual Design
-                        </h3>
 
-                        <ul className="skill-pills">
-                            <li className="skill-pill">Graphic Design</li>
-                            <li className="skill-pill">Illustration</li>
-                            <li className="skill-pill">Branding</li>
-                            <li className="skill-pill">Adobe Creative Suite</li>
-                        </ul>
+                    <div className="featured-project-description">
+                        <p>Preserv</p>
+                        <a href="#projects">View Project →</a>
                     </div>
-
-                    <div className="skill-group">
-                        <h3 className="skill-group-label">
-                            3D / Technical
-                        </h3>
-
-                        <ul className="skill-pills">
-                            <li className="skill-pill">3D Modeling</li>
-                            <li className="skill-pill">CAD</li>
-                            <li className="skill-pill">Maya</li>
-                            <li className="skill-pill">AutoCAD</li>
-                            <li className="skill-pill">Revit</li>
-                            <li className="skill-pill">Fusion 360</li>
-                        </ul>
-                    </div>
-
                 </div>
+                <article className="home-card recipe-project-card">
 
-            </section>
+                    <div className="featured-project-header">
+
+                        <div>
+                            <p className="card-label">
+                                Featured Project
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div className="recipe-preview">
+
+                        <iframe
+                            src="https://recipe-jungle.vercel.app/"
+                            title="Recipe Jungle live preview"
+                            loading="lazy"
+                        />
+
+                    </div>
+                    <p>Recipe Jungle</p>
+                    <a href="#projects">
+                        View Project →
+                    </a>
+
+                </article>
+
+
+            </div>
+
         </section>
     );
 }

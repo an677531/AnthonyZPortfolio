@@ -1,226 +1,156 @@
-/*
- * ABOUT PAGE — ACTION PLAN
- *
- * PURPOSE:
- * Give visitors a deeper understanding of who I am, my professional
- * background, my multidisciplinary skill set, and the perspective I bring
- * to design and development.
- *
- * STRUCTURE:
- *
- * 1. INTRODUCTION
- * - Introduce myself as a maker
- * - Briefly explain my approach to design + technology
- * - Reinforce "Generalist by design, specialist by practice"
- *
- * 2. WHAT I DO
- * - Explain my primary professional focus
- * - Emphasize frontend development + visual/UI design
- * - Keep this more about capabilities and approach than a giant tech list
- *
- * 3. PROFESSIONAL EXPERIENCE
- * - UCF OPS Web Designer
- * - UCF Graphic Design Assistant
- * - Explain what I actually did and what these experiences taught me
- * - Emphasize experience working across both design and development
- *
- * 4. CAPABILITIES / SKILLS
- * Organize skills into clear categories rather than one long list:
- *
- * Web:
- * - HTML
- * - CSS
- * - JavaScript
- * - React
- * - WordPress
- *
- * Design:
- * - UI/UX
- * - Visual Design
- * - Responsive Design
- * - Wireframing
- * - Prototyping
- * - Figma
- *
- * 3D / Technical:
- * - CAD
- * - 3D Modeling
- * - Architectural Visualization
- * - Maya
- * - AutoCAD
- * - Revit
- * - Inventor
- * - Fusion 360
- *
- * Only include skills I can confidently discuss or demonstrate.
- *
- * 5. BEYOND THE WEB
- * - Explain my CAD, 3D, architectural visualization, and broader
- *   technical background
- * - Show how these experiences influence the way I approach digital work
- *
- * 6. OUTSIDE OF WORK
- * - Give visitors a glimpse of Anthony the person
- * - Art
- * - Writing / worldbuilding
- * - Books, films, games
- * - Cooking
- * - Plants
- * - Curiosity / taking things apart / learning
- *
- * 7. PERSONAL MEDIA
- * Add optional interactive/personal components:
- * - Photos component: cat, plants, artwork, places, interesting things, etc.
- * - Personal artwork / Instagram
- * - Currently listening / Spotify
- *
- * These should support the "maker" identity without distracting from the
- * professional content.
- *
- * 8. CLOSING STATEMENT
- * - Return to the core philosophy of the portfolio
- * - Reinforce the idea that strong solutions emerge where disciplines
- *   intersect
- *
- * CONTENT GUIDELINES:
- * - Avoid repeating the same information from the Home page
- * - Home = quick introduction and positioning
- * - About = deeper context and background
- * - Projects = proof of ability
- * - Case Studies = process and problem-solving
- * - Contact = opportunity to connect
- *
- * UX / VISUAL:
- * - Do not present the About page as one giant wall of text
- * - Break the content into visually distinct sections
- * - Use typography, spacing, images, and components to create hierarchy
- * - Make the page easy to scan while still rewarding deeper reading
- * - Keep personal content visually interesting but secondary to professional
- *   experience
- *
- * OVERALL GOAL:
- * By the end of the About page, the visitor should understand:
- *
- *      Who is Anthony?
- *      What does he do?
- *      What experience does he have?
- *      What skills does he bring?
- *      What makes his perspective different?
- *      What is he like as a person?
- *
- * The page should make the "maker" identity feel genuine by showing the
- * breadth of experiences behind it, rather than simply claiming to be
- * multidisciplinary.
- */
 import Photos from './Photos.jsx';
 import InstagramPost from "./Insta.jsx";
+import { useState } from "react";
 function About() {
+    const [skillFilter, setSkillFilter] = useState("all");
+
+    const skills = [
+        { name: "HTML 5", type: "developer" },
+        { name: "WordPress", type: "developer" },
+        { name: "CSS", type: "developer" },
+        { name: "Responsive Design", type: "developer" },
+        { name: "React", type: "developer" },
+        { name: "JavaScript", type: "developer" },
+        { name: "PHP", type: "developer" },
+
+        { name: "Adobe Creative Suite", type: "designer" },
+        { name: "Prototyping", type: "designer" },
+        { name: "Figma", type: "designer" },
+        { name: "UI/UX Design", type: "designer" },
+        { name: "AutoCAD", type: "designer" },
+        { name: "Illustration", type: "designer" },
+        { name: "Graphic Design", type: "designer" },
+        { name: "Branding", type: "designer" },
+        { name: "3D Modeling", type: "designer" },
+        { name: "CAD", type: "designer" },
+        { name: "Maya", type: "designer" },
+        { name: "Fusion 360", type: "designer" }
+    ];
     return (
         <section id="about" className="hero">
             <div className="container">
 
-                <div className="about-intro">
-                    <p className="bio-top">
-                        Hi, I'm <strong>Anthony</strong>. I'm a <strong>maker</strong>.
-                    </p>
+                <div className="intro">
+                    <h1 className="bio-title">
+                        Who I am
+                    </h1>
 
-                    <p>
-                        The most compelling digital experiences are built where{' '}
-                        <strong>creativity</strong> and <strong>technology</strong> converge.
-                    </p>
+                    <div className="bio-content">
+                        <span className="accentAD">Where I'm From</span>
+                        <p>I'm from Florida, where I studied Digital Media at the University of Central Florida. I've always liked making things: designing, coding, drawing, or occasionally taking something apart just to see how it works (no promises it goes back together).</p>
 
-                    <p>
-                        I'm a <strong>Digital Media</strong> graduate from the University
-                        of Central Florida with a multidisciplinary background spanning{' '}
-                        <strong>front-end development</strong>, <strong>visual design</strong>,
-                        and digital media.
-                    </p>
+                        <span className="accentBD">What I Do</span>
+                        <p>I work across front-end development, visual design, and digital media. At UCF, I built and maintained production WordPress sites as a Web Designer and worked on campus marketing as a Graphic Design Assistant.</p>
 
-                </div>
+                        <p>My toolkit includes HTML, CSS, JavaScript, React, and WordPress, along with a mix of other creative and technical tools. I've also done some 3D modeling, CAD, and architectural visualization along the way. I like sitting at the intersection of design and code, building things that work well and feel good to use.</p>
+                        <span className="accentAD">What I'm Into</span>
+                        <p>Outside of websites, I'm usually making something else. I draw, write and illustrate fantasy worlds, play games, read, watch movies, cook, keep more plants than I probably should, and take things apart just to understand them. I'm curious by nature about software, recipes, fictional worlds, or whatever's sitting on my desk that day.</p>
+                        <span className="accentBD">What I'm Looking For</span>
+                        <p>Work where design, technology, and creativity overlap, with people who care about building thoughtful things and are willing to experiment. Somewhere I can keep making, keep learning, and keep taking things apart to put them back together better.</p>
+                    </div>
 
-                <div className="about-section">
-                    <h2>What I Do</h2>
-
-                    <p>
-                        My practice centers on modern front-end development using{' '}
-                        <strong>HTML</strong>, <strong>CSS</strong>,{' '}
-                        <strong>JavaScript</strong>, <strong>React</strong>, and{' '}
-                        <strong>WordPress</strong>, supported by experience in UI/UX,
-                        responsive design, and visual communication.
-                    </p>
-
-                    <p>
-                        I enjoy translating ideas into interfaces that balance
-                        functionality with clarity, where every design decision
-                        serves a purpose and every line of code contributes to a
-                        better user experience.
-                    </p>
-                </div>
-
-                <div className="about-section">
-                    <h2>Experience</h2>
-
-                    <p>
-                        My professional experience at the University of Central Florida
-                        includes developing and maintaining production WordPress websites
-                        as an <strong>OPS Web Designer</strong>, while also contributing
-                        to campus-wide marketing initiatives as a{' '}
-                        <strong>Graphic Design Assistant</strong>.
-                    </p>
-
-                    <p>
-                        Working across development and design has reinforced my appreciation
-                        for both sides of the process: creating systems that are technically
-                        sound while ensuring every interaction feels intentional,
-                        intuitive, and accessible.
-                    </p>
-                </div>
-
-                <div className="about-section">
-                    <h2>Beyond the Web</h2>
-
-                    <p>
-                        My technical background extends beyond web technologies. I've
-                        developed experience in <strong>CAD</strong>, architectural
-                        visualization, and <strong>3D modeling</strong> through Autodesk
-                        Maya, AutoCAD, Revit, Inventor, and Fusion 360.
-                    </p>
-
-                    <p>
-                        Working across physical and digital mediums has taught me to think
-                        spatially, iterate deliberately, and approach challenges from
-                        multiple perspectives.
-                    </p>
                 </div>
                 <div className="personal-links">
-
-                    <iframe src="https://open.spotify.com/embed/playlist/2vHEICNnkB3kioFgdaRzzA?utm_source=generator&theme=0&si=8c724779f05d4b46" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                </div>
-                <div className="about-section about-personal">
-                    <h2>Outside of Work</h2>
-                    <p>
-                        Curiosity remains the common thread. I create traditional and
-                        digital artwork, write and illustrate original fantasy worlds,
-                        explore storytelling through books, films, and games, and enjoy
-                        learning through cooking, caring for plants, and taking things
-                        apart to understand how they work.
-                    </p>
+                    <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7467206019664891905?collapsed=1" height="629" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
                 </div>
                 <div className="about-photos">
                     <Photos />
                 </div>
+                <div className="about-skills-card">
 
+                    <div className="skills-header">
+
+                        <p id="skills-heading">
+                            Skills
+                        </p>
+
+                        <div
+                            className="skill-filters"
+                            role="group"
+                            aria-label="Filter skills"
+                        >
+
+                            <button
+                                type="button"
+                                className={
+                                    skillFilter === "designer"
+                                        ? "active"
+                                        : ""
+                                }
+                                onClick={() =>
+                                    setSkillFilter("designer")
+                                }
+                            >
+                                Designer
+                            </button>
+
+                            <button
+                                type="button"
+                                className={
+                                    skillFilter === "developer"
+                                        ? "active"
+                                        : ""
+                                }
+                                onClick={() =>
+                                    setSkillFilter("developer")
+                                }
+                            >
+                                Developer
+                            </button>
+
+                            <button
+                                type="button"
+                                className={
+                                    skillFilter === "all"
+                                        ? "active"
+                                        : ""
+                                }
+                                onClick={() =>
+                                    setSkillFilter("all")
+                                }
+                            >
+                                All In
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div className="skill-pills">
+
+                        {skills.map((skill) => {
+
+                            const isHighlighted =
+                                skillFilter === "all" ||
+                                skillFilter === skill.type;
+
+                            return (
+                                <span
+                                    className={`skill-pill ${skill.type} ${isHighlighted ? "highlighted" : "muted"
+                                        }`}
+                                    key={skill.name}
+                                >
+                                    {skill.name}
+                                </span>
+                            );
+
+                        })}
+
+                    </div>
+
+                </div>
+                <div className="spotify">
+                    <span className="accentB"><strong><p>Music I Listen to On Repeat</p></strong></span>
+                    <iframe src="https://open.spotify.com/embed/playlist/2vHEICNnkB3kioFgdaRzzA?utm_source=generator&theme=0&si=8c724779f05d4b46" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
                 <div className="instagram">
                     <InstagramPost />
                 </div>
-
-                <div className="about-closing">
-                    <p>
-                        The <strong>best solutions</strong> rarely stay in one lane.
-                        They exist where <strong>disciplines intersect</strong>, where
-                        thoughtful design supports solid engineering, and where curiosity
-                        becomes the foundation for meaningful work.
-                    </p>
+                <div className="current-project">
+                    <span className="accentB"><strong><p>My Current Side-Project</p></strong></span>
+                    <p>Board game collection manager.</p>
+                    <p>Checkout my work progress <a className="reg-link" href="https://github.com/an677531">here</a></p>
                 </div>
 
             </div>
