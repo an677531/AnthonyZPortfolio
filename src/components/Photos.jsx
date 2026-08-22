@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import evillarry from "../assets/1.PNG";
-import evilgary from "../assets/2.JPG";
-import evilharry from "../assets/3.JPG";
+import evillarry from "../assets/1.png";
+import evilgary from "../assets/2.png";
+import evilharry from "../assets/3.png";
+import evilbary from "../assets/4.png"
 
 function Photos() {
-    const photos = [evillarry, evilgary, evilharry, evilgary];
+    const photos = [evillarry, evilgary, evilharry, evilbary];
     const [currentPhoto, setCurrentPhoto] = useState(0);
 
     useEffect(() => {

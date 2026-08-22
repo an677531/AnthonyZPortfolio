@@ -2,14 +2,24 @@ import { useEffect } from "react";
 
 function InstagramPost() {
     useEffect(() => {
-        // Load Instagram's embed script once
-        if (!document.querySelector('script[src="https://www.instagram.com/embed.js"]')) {
+        const processInstagram = () => {
+            if (window.instgrm) {
+                window.instgrm.Embeds.process();
+            }
+        };
+
+        const existingScript = document.querySelector(
+            'script[src="https://www.instagram.com/embed.js"]'
+        );
+
+        if (!existingScript) {
             const script = document.createElement("script");
             script.src = "https://www.instagram.com/embed.js";
             script.async = true;
+            script.onload = processInstagram;
             document.body.appendChild(script);
-        } else if (window.instgrm) {
-            window.instgrm.Embeds.process();
+        } else {
+            processInstagram();
         }
     }, []);
 
