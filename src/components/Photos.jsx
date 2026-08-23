@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import evillarry from "../assets/1.png";
-import evilgary from "../assets/2.png";
-import evilharry from "../assets/3.png";
-import evilbary from "../assets/4.png";
+import evillarry from "../assets/one.png";
+import evilgary from "../assets/two.png";
+import evilharry from "../assets/three.png";
+import evilbary from "../assets/four.png";
 
 const photos = [evillarry, evilgary, evilharry, evilbary];
 
