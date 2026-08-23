@@ -7,7 +7,8 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import ProjectTemplate from './components/ProjectTemplate';
 import Footer from './components/Footer';
-import RecipeJungle from './components/RecipeJungleProject'
+import RecipeJungle from './components/RecipeJungleProject';
+import Preserv from './components/Preserv';
 function App() {
   const [page, setPage] = useState('home');
 
@@ -23,6 +24,7 @@ function App() {
         {page === 'contact' && <Contact onNavigate={setPage} />}
         {page === 'project-template' && <ProjectTemplate onNavigate={setPage} />}
         {page === 'project-recipe-jungle' && <RecipeJungle onNavigate={setPage} />}
+        {page === 'project-preserv' && <Preserv onNavigate={setPage} />}
       </main>
       <Footer />
     </>

@@ -12,7 +12,7 @@ function Projects({ onNavigate }) {
 
                 <button
                     className="project-button"
-                    onClick={() => onNavigate("project-template")}
+                    onClick={() => onNavigate("project-preserv")}
                 >
                     Preserv
                 </button>
