@@ -3,12 +3,12 @@ function Projects({ onNavigate }) {
         <section id="projects" className="hero">
             <div className="container">
 
-                <button
+                {/**<button
                     className="project-button"
                     onClick={() => onNavigate("project-template")}
                 >
                     Main Project
-                </button>
+                </button>*/}
 
                 <button
                     className="project-button"
