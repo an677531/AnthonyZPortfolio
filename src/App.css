@@ -2505,3 +2505,77 @@ button {
   }
 
 }
+
+.graphic-slider {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.graphic-slider-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 500px;
+  padding: var(--space-md);
+  background-color: var(--primary-color);
+  border: var(--border-width) solid var(--muted-color);
+  border-radius: var(--corner);
+}
+
+.graphic-slider-image img {
+  display: block;
+  max-width: 100%;
+  max-height: 75vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--corner);
+}
+
+.graphic-slider-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+.graphic-slider-controls button {
+  padding: var(--space-xs) var(--space-sm);
+  color: var(--accent-color);
+  background-color: transparent;
+  border: var(--border-width) solid var(--muted-color);
+  border-radius: var(--corner);
+  font-size: var(--font-size);
+}
+
+.graphic-slider-controls button:hover {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.graphic-slider-controls span {
+  color: var(--muted-color);
+  font-size: 14px;
+}
+
+.graphic-project-descriptions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--section-gap);
+}
+
+.graphic-project-descriptions h3 {
+  margin: 0 0 var(--space-xs);
+  color: var(--accent-color);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.graphic-project-descriptions p {
+  margin: 0;
+  max-width: 750px;
+  font-size: 17px;
+  line-height: 1.7;
+}

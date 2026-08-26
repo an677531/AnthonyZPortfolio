@@ -40,7 +40,7 @@ function Projects({ onNavigate }) {
 
                 <button
                     className="project-button"
-                    onClick={() => onNavigate("project-template")}
+                    onClick={() => onNavigate("project-graphic-design")}
                 >
                     Graphic Design Projects
                 </button>

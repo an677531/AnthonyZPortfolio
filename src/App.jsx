@@ -9,6 +9,7 @@ import ProjectTemplate from './components/ProjectTemplate';
 import Footer from './components/Footer';
 import RecipeJungle from './components/RecipeJungleProject';
 import Preserv from './components/Preserv';
+import GraphicDesign from './components/GraphicDesign';
 function App() {
   const [page, setPage] = useState('home');
 
@@ -25,6 +26,7 @@ function App() {
         {page === 'project-template' && <ProjectTemplate onNavigate={setPage} />}
         {page === 'project-recipe-jungle' && <RecipeJungle onNavigate={setPage} />}
         {page === 'project-preserv' && <Preserv onNavigate={setPage} />}
+        {page === 'project-graphic-design' && <GraphicDesign onNavigate={setPage} />}
       </main>
       <Footer />
     </>
