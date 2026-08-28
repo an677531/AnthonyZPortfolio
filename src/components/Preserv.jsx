@@ -461,13 +461,6 @@ function Preserv({ onNavigate }) {
                             View GitHub →
                         </a>
 
-                        <a
-                            href="https://youtu.be/t01ee2bOd5Q?si=YtZK-u8Lqgd_EKVN"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Watch Video Walkthrough →
-                        </a>
 
                     </div>
 
