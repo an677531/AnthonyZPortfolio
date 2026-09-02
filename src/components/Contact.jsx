@@ -1,4 +1,4 @@
-import Resume from '../assets/Resume.pdf';
+import Resume from '../assets/MainResume.pdf';
 function Contact() {
     return <section id="contact" className="hero">
 
