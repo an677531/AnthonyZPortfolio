@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import MiniGovLogo from "../assets/MiniGovLogo.png";
 
 import StoryBoard1 from "../assets/StoryBoard1.jpg";
@@ -22,8 +24,181 @@ import Details from "../assets/Details.png";
 import Register from "../assets/Register.png";
 import Menu from "../assets/Menu.png";
 
-function MiniGov({ onNavigate }) {
+
+/* =========================================
+   IMAGE SLIDER
+========================================= */
+
+function ImageSlider({ images }) {
+
+    const [currentImage, setCurrentImage] = useState(0);
+
+    const nextImage = () => {
+        setCurrentImage(
+            (current) => (current + 1) % images.length
+        );
+    };
+
+    const previousImage = () => {
+        setCurrentImage(
+            (current) =>
+                (current - 1 + images.length) % images.length
+        );
+    };
+
     return (
+        <div className="graphic-slider">
+
+            <div className="graphic-slider-image">
+
+                <img
+                    src={images[currentImage].src}
+                    alt={images[currentImage].alt}
+                />
+
+            </div>
+
+            {images.length > 1 && (
+
+                <div className="graphic-slider-controls">
+
+                    <button
+                        type="button"
+                        onClick={previousImage}
+                        aria-label="Previous image"
+                    >
+                        ←
+                    </button>
+
+                    <span>
+                        {currentImage + 1} / {images.length}
+                    </span>
+
+                    <button
+                        type="button"
+                        onClick={nextImage}
+                        aria-label="Next image"
+                    >
+                        →
+                    </button>
+
+                </div>
+
+            )}
+
+        </div>
+    );
+}
+
+
+/* =========================================
+   MINIGOV
+========================================= */
+
+function MiniGov({ onNavigate }) {
+
+    /* =========================================
+       SLIDER IMAGE ARRAYS
+    ========================================== */
+
+    const storyboards = [
+        {
+            src: StoryBoard1,
+            alt: "MiniGov storyboard exploring a user's interaction with government information"
+        },
+        {
+            src: StoryBoard2,
+            alt: "MiniGov storyboard showing a user navigating the proposed application"
+        },
+        {
+            src: StoryBoard3,
+            alt: "MiniGov storyboard showing a proposed government information experience"
+        },
+        {
+            src: StoryBoard4,
+            alt: "MiniGov storyboard exploring how a user moves through MiniGov"
+        },
+        {
+            src: StoryBoard5,
+            alt: "MiniGov storyboard showing a user exploring legislative information"
+        },
+        {
+            src: StoryBoard6,
+            alt: "MiniGov storyboard showing a user finding information about a bill"
+        }
+    ];
+
+
+    const initialDesignIdeas = [
+        {
+            src: InitialDesignIdea1,
+            alt: "MiniGov early wireframe showing the search and advanced search experience"
+        },
+        {
+            src: InitialDesignIdea2,
+            alt: "MiniGov early wireframe showing a bill information interface"
+        },
+        {
+            src: InitialDesignIdea3,
+            alt: "MiniGov early wireframe showing the structure of a government information screen"
+        }
+    ];
+
+
+    const finalScreens = [
+        {
+            src: LoadScreen,
+            alt: "MiniGov loading screen"
+        },
+        {
+            src: Home,
+            alt: "MiniGov homepage showing the main navigation and information areas"
+        },
+        {
+            src: Summary,
+            alt: "MiniGov bill summary screen"
+        },
+        {
+            src: Details,
+            alt: "MiniGov detailed bill information screen"
+        },
+        {
+            src: Register,
+            alt: "MiniGov registration screen"
+        },
+        {
+            src: Menu,
+            alt: "MiniGov navigation menu"
+        }
+    ];
+
+
+    const aiAssistantScreens = [
+        {
+            src: AIHelpSummary,
+            alt: "MiniGov AI Help interface providing a simplified summary of government information"
+        }
+    ];
+
+
+    const resultScreens = [
+        {
+            src: Home,
+            alt: "MiniGov final homepage"
+        },
+        {
+            src: Summary,
+            alt: "MiniGov final bill summary screen"
+        },
+        {
+            src: Details,
+            alt: "MiniGov final detailed information screen"
+        }
+    ];
+
+
+    return (
+
         <section className="project-page">
 
             <button
@@ -33,7 +208,9 @@ function MiniGov({ onNavigate }) {
                 Go Back
             </button>
 
+
             <div className="container">
+
 
                 {/* =========================================
                     PROJECT HERO
@@ -50,12 +227,12 @@ function MiniGov({ onNavigate }) {
                     </h1>
 
                     <p className="project-summary">
-                        A mobile government information application designed
-                        to make government resources easier to find,
-                        understand, and navigate.
+                        Redesigning Congress.gov into a clearer,
+                        more approachable mobile experience for
+                        understanding government information.
                     </p>
 
-                    <div className="project-image">
+                    <div className="MiniGov-logo">
 
                         <img
                             src={MiniGovLogo}
@@ -80,22 +257,11 @@ function MiniGov({ onNavigate }) {
                         </h3>
 
                         <p>
-                            UX/UI Designer · Developer
+                            Lead Designer · UI/UX Designer
                         </p>
 
                     </div>
 
-                    <div className="project-overview-item">
-
-                        <h3>
-                            Timeline
-                        </h3>
-
-                        <p>
-                            2025–2026
-                        </p>
-
-                    </div>
 
                     <div className="project-overview-item">
 
@@ -104,19 +270,33 @@ function MiniGov({ onNavigate }) {
                         </h3>
 
                         <p>
-                            Five-person interdisciplinary team
+                            Team Minerva · Five-person interdisciplinary team
                         </p>
 
                     </div>
 
+
                     <div className="project-overview-item">
 
                         <h3>
-                            Focus
+                            Timeline
                         </h3>
 
                         <p>
-                            UX/UI · Information Architecture · Development
+                            Semester-long UCD project
+                        </p>
+
+                    </div>
+
+
+                    <div className="project-overview-item">
+
+                        <h3>
+                            Tools
+                        </h3>
+
+                        <p>
+                            Figma · Paper Prototyping · User Research
                         </p>
 
                     </div>
@@ -135,21 +315,30 @@ function MiniGov({ onNavigate }) {
                     </p>
 
                     <h2>
-                        Making government information easier to navigate
+                        Redesigning Congress.gov for clarity and trust
                     </h2>
 
                     <p>
-                        Government websites often contain large amounts of
-                        information that can be difficult to navigate and
-                        understand, especially for users who are unfamiliar
-                        with government terminology and systems.
+                        Congress.gov is the authoritative source for tracking
+                        bills, laws, members, and legislative activity in the
+                        United States. However, the amount of information
+                        presented across the platform can make it difficult for
+                        new or casual users to understand where to begin.
                     </p>
 
                     <p>
-                        MiniGov was developed as a concept for a mobile
-                        application that could provide a simpler way to find
-                        government information while giving users access to
-                        both concise summaries and more detailed information.
+                        Our early research showed that users experienced the
+                        existing interface as dense, outdated, and difficult
+                        to navigate. Even politically engaged participants
+                        rarely visited Congress.gov voluntarily because the
+                        experience did not feel approachable or easy to use.
+                    </p>
+
+                    <p>
+                        MiniGov was created to explore how the credibility and
+                        depth of Congress.gov could be preserved while making
+                        government information easier to understand and
+                        navigate.
                     </p>
 
                 </section>
@@ -166,29 +355,31 @@ function MiniGov({ onNavigate }) {
                     </p>
 
                     <h2>
-                        What the application needed to accomplish
+                        Making government information easier to understand
                     </h2>
 
                     <ul className="project-list">
 
                         <li>
-                            Make government information easier to find.
+                            Make government information easier to find and navigate.
                         </li>
 
                         <li>
-                            Organize information into clear, understandable
-                            categories.
+                            Reduce the visual density of information-heavy pages.
                         </li>
 
                         <li>
-                            Provide simple paths between summaries and
-                            detailed information.
+                            Make complex legislative information easier to understand.
                         </li>
 
                         <li>
-                            Create a mobile experience that feels more
-                            approachable than a traditional government
-                            website.
+                            Create clearer navigation for students, voters,
+                            teachers, and other first-time users.
+                        </li>
+
+                        <li>
+                            Preserve enough detail and credibility for users
+                            who need deeper legislative information.
                         </li>
 
                     </ul>
@@ -207,56 +398,38 @@ function MiniGov({ onNavigate }) {
                     </p>
 
                     <h2>
-                        Exploring how users might interact with the concept
+                        Understanding how people interact with government information
                     </h2>
 
                     <p>
-                        Early exploration focused on understanding the types
-                        of information MiniGov would need to present and how
-                        someone might move through the proposed application.
+                        The project followed a User-Centered Design process
+                        beginning with user interviews, surveys, comprehension
+                        testing, and competitive analysis. We looked at how
+                        different audiences—including students, teachers,
+                        voters, and more experienced political users—might
+                        approach government information.
                     </p>
 
                     <p>
-                        Storyboards were created during this early concept
-                        stage to visualize possible interactions and
-                        communicate the proposed experience. They were created
-                        before user testing and were used as a way to explore
-                        the idea rather than as research findings.
+                        One of the strongest findings was that users had a much
+                        easier time understanding legislative information when
+                        it was presented in plain language rather than only as
+                        legal text. This finding helped shape the idea of
+                        providing different levels of information instead of
+                        forcing every user to begin with the same level of
+                        detail.
                     </p>
 
-                    <div className="project-gallery">
+                    <p>
+                        We also analyzed legislation.gov.au as a competitor and
+                        completed a task-based evaluation of its search and
+                        information architecture. The analysis reinforced the
+                        importance of prominent search, simple navigation, and
+                        making plain-language summaries immediately accessible.
+                    </p>
 
-                        <img
-                            src={StoryBoard1}
-                            alt="MiniGov storyboard showing a proposed user scenario"
-                        />
 
-                        <img
-                            src={StoryBoard2}
-                            alt="MiniGov storyboard showing a proposed interaction"
-                        />
-
-                        <img
-                            src={StoryBoard3}
-                            alt="MiniGov storyboard showing a proposed application interaction"
-                        />
-
-                        <img
-                            src={StoryBoard4}
-                            alt="MiniGov storyboard showing a proposed information flow"
-                        />
-
-                        <img
-                            src={StoryBoard5}
-                            alt="MiniGov storyboard showing a proposed government information interaction"
-                        />
-
-                        <img
-                            src={StoryBoard6}
-                            alt="MiniGov storyboard showing a proposed bill information interaction"
-                        />
-
-                    </div>
+                    <ImageSlider images={storyboards} />
 
                 </section>
 
@@ -272,29 +445,39 @@ function MiniGov({ onNavigate }) {
                     </p>
 
                     <h2>
-                        Organizing the application's information
+                        Building a simpler structure around complex information
                     </h2>
 
                     <p>
-                        The next step was establishing how users would move
-                        through the application and how different types of
-                        government information would relate to one another.
+                        Before developing the visual interface, we established
+                        the application's core information architecture and
+                        data relationships. The structure was organized around
+                        five major areas: Profile, Homepage, Search, Pages,
+                        and Notifications.
                     </p>
 
                     <p>
-                        The structure centered around several core areas,
-                        including the homepage, search, profiles, legislation,
-                        educational information, and notifications. Related
-                        information was connected so users could move from a
-                        piece of legislation to additional context and related
-                        people or resources.
+                        Pages could represent bills, laws, members, or
+                        educational content, with related information connected
+                        throughout the experience. This allowed a user to move
+                        from a legislative item to additional context, related
+                        people, or educational information without having to
+                        restart their search.
                     </p>
+
+                    <p>
+                        Search, sorting, and filtering were also treated as a
+                        connected system. Basic search remained simple for new
+                        users, while advanced filters could be revealed for
+                        users who needed more control over their results.
+                    </p>
+
 
                     <div className="project-image">
 
                         <img
                             src={UserFlowConcept}
-                            alt="MiniGov user flow showing relationships between application screens"
+                            alt="MiniGov information architecture and user flow"
                         />
 
                     </div>
@@ -313,41 +496,36 @@ function MiniGov({ onNavigate }) {
                     </p>
 
                     <h2>
-                        Establishing the structure of the interface
+                        Exploring the structure before defining the visual style
                     </h2>
 
                     <p>
-                        I then developed rough wireframes to determine how
-                        information could be organized across the application's
-                        primary screens.
+                        I began the interface design process with paper
+                        prototypes before moving into low-fidelity Figma
+                        wireframes. These early screens explored the core
+                        experience, including the homepage, search results,
+                        advanced search, bill summaries, detailed information,
+                        sign-in, registration, and navigation.
                     </p>
 
                     <p>
-                        These screens represent one early visual direction
-                        rather than three separate design directions. The
-                        purpose was to establish the overall organization,
-                        hierarchy, and relationships between interface elements
-                        before developing the final visual system.
+                        The wireframes helped establish hierarchy and
+                        interaction patterns before visual styling became the
+                        focus. They also gave us an early prototype to use
+                        during usability testing and identify where users were
+                        getting confused.
                     </p>
 
-                    <div className="project-gallery">
+                    <p>
+                        Early testing revealed that some interactive elements
+                        did not look interactive enough and that users needed a
+                        clearer way to return home. These findings influenced
+                        the navigation and interaction patterns developed in
+                        the high-fidelity designs.
+                    </p>
 
-                        <img
-                            src={InitialDesignIdea1}
-                            alt="Early MiniGov wireframe showing an advanced search interface"
-                        />
 
-                        <img
-                            src={InitialDesignIdea2}
-                            alt="Early MiniGov wireframe showing an information interface"
-                        />
-
-                        <img
-                            src={InitialDesignIdea3}
-                            alt="Early MiniGov wireframe showing a government information screen"
-                        />
-
-                    </div>
+                    <ImageSlider images={initialDesignIdeas} />
 
                 </section>
 
@@ -363,62 +541,50 @@ function MiniGov({ onNavigate }) {
                     </p>
 
                     <h2>
-                        Creating a clear and approachable visual system
+                        Finding the right balance between credibility and approachability
                     </h2>
 
                     <p>
-                        The interface developed from the early wireframes into
-                        a consistent mobile visual system. The design uses a
-                        restrained color palette, consistent interface patterns,
-                        and clear hierarchy to make information-heavy screens
-                        easier to navigate.
+                        Rather than immediately committing to one visual
+                        direction, I designed three distinct high-fidelity
+                        approaches and tested them with users. The directions
+                        ranged from a conservative government-inspired
+                        interface to a more playful visual system.
                     </p>
+
+                    <p>
+                        The moderate direction received the strongest overall
+                        response. Users responded positively to its darker
+                        interface, restrained use of blue, and balance between
+                        modern visual design and government credibility. This
+                        direction became the foundation for the final visual
+                        system.
+                    </p>
+
 
                     <div className="project-image">
 
                         <img
                             src={ColorPalette}
-                            alt="MiniGov color palette"
+                            alt="MiniGov color palette showing the project's black, white, gray, and blue color system"
                         />
 
                     </div>
 
-                    <div className="project-gallery">
 
-                        <img
-                            src={LoadScreen}
-                            alt="MiniGov loading screen"
-                        />
+                    <p>
+                        The final system uses black, white, and several shades
+                        of gray with blue reserved primarily for actions and
+                        emphasis. Inter was used throughout the interface for
+                        readability, while consistent navigation, button
+                        states, and larger tap targets helped make the
+                        experience easier to use.
+                    </p>
 
-                        <img
-                            src={Home}
-                            alt="MiniGov home screen"
-                        />
 
-                        <img
-                            src={Summary}
-                            alt="MiniGov summary screen"
-                        />
-
-                        <img
-                            src={Details}
-                            alt="MiniGov details screen"
-                        />
-
-                        <img
-                            src={Register}
-                            alt="MiniGov registration screen"
-                        />
-
-                        <img
-                            src={Menu}
-                            alt="MiniGov navigation menu"
-                        />
-
-                    </div>
+                    <ImageSlider images={finalScreens} />
 
                 </section>
-
 
                 {/* =========================================
                     07 — AI ASSISTANT
@@ -431,32 +597,26 @@ function MiniGov({ onNavigate }) {
                     </p>
 
                     <h2>
-                        Making dense information easier to digest
+                        Helping users understand dense legislative information
                     </h2>
 
                     <p>
-                        Government information can be difficult to understand
-                        when presented in long or highly detailed documents.
-                        MiniGov explored an AI assistant as a way to make this
-                        information more approachable.
+                        One of the challenges identified during the project was
+                        the difficulty of understanding long and complex
+                        legislative documents. Instead of expecting every user
+                        to immediately read the full source material, MiniGov
+                        explored an AI Help feature that could provide a more
+                        approachable starting point.
                     </p>
 
                     <p>
-                        The concept allows users to receive a concise summary
-                        of dense government information while still being able
-                        to access the complete details when needed. This creates
-                        a simpler entry point without removing the underlying
-                        information.
+                        The concept allows users to receive a concise
+                        explanation of complex information while maintaining
+                        access to the complete details. This supports the
+                        project's broader goal of creating different levels of
+                        information for different users and reading needs.
                     </p>
-
-                    <div className="project-image">
-
-                        <img
-                            src={AIHelpSummary}
-                            alt="MiniGov AI assistant summarizing government information"
-                        />
-
-                    </div>
+                    <ImageSlider images={aiAssistantScreens} />
 
                 </section>
 
@@ -468,62 +628,74 @@ function MiniGov({ onNavigate }) {
                 <section className="project-section">
 
                     <p className="section-label">
-                        08 — Testing
+                        08 — Usability Testing
                     </p>
 
                     <h2>
-                        Evaluating the proposed experience
+                        Testing the design with real users
                     </h2>
 
                     <p>
-                        Usability testing was used to identify areas where the
-                        proposed experience could be improved. Testing focused
-                        on how users understood the navigation, information
-                        hierarchy, and interactive elements.
+                        We conducted usability testing throughout the design
+                        process, beginning with a low-fidelity think-aloud test
+                        and later evaluating the high-fidelity prototype. The
+                        testing process included task analysis, post-experience
+                        surveys, and an expert heuristic evaluation.
                     </p>
 
                     <p>
-                        A video walkthrough of the testing process will be
-                        added here.
+                        The high-fidelity testing showed that users generally
+                        found the navigation and information layout easier to
+                        understand. Both MiniGov and the existing Congress.gov
+                        experience received an average post-experience rating
+                        of 8.2 out of 10, while the qualitative feedback
+                        highlighted the balance between simplicity and having
+                        enough information as one of the strongest aspects of
+                        the redesign.
                     </p>
 
-                    <div className="project-image">
-
-                        <div>
-                            Testing Video Placeholder
-                        </div>
-
-                    </div>
-
+                    <p>
+                        Testing also identified areas for further improvement,
+                        particularly confusion between the share and
+                        bookmark icons and inconsistencies in how users
+                        returned to the homepage.
+                    </p>
                 </section>
 
-
                 {/* =========================================
-                    09 — DEVELOPMENT
+                    09 — ITERATION
                 ========================================== */}
 
                 <section className="project-section">
 
                     <p className="section-label">
-                        09 — Development
+                        09 — Iteration
                     </p>
 
                     <h2>
-                        Bringing the interface into an interactive application
+                        Using testing to refine the final experience
                     </h2>
 
                     <p>
-                        The project also involved front-end development and
-                        connecting the interface to application data. I
-                        contributed to implementing the interface and worked
-                        across front-end and back-end functionality as part of
-                        the development team.
+                        The testing results helped distinguish between problems
+                        with the design itself and limitations caused by the
+                        prototype. Navigation and information hierarchy were
+                        consistently understood well, while specific interface
+                        controls created more confusion.
                     </p>
 
                     <p>
-                        The project used web technologies including JavaScript,
-                        PHP, MySQL, HTML, CSS, and Git while developing the
-                        application's functionality.
+                        These findings informed the next iteration of the
+                        interface. Interactive elements needed to communicate
+                        their purpose more clearly, and navigation needed to
+                        provide consistent paths back to the homepage.
+                    </p>
+
+                    <p>
+                        The project reinforced the value of testing multiple
+                        visual directions and validating design decisions with
+                        users rather than relying entirely on personal
+                        preference.
                     </p>
 
                 </section>
@@ -540,29 +712,36 @@ function MiniGov({ onNavigate }) {
                     </p>
 
                     <h2>
-                        Balancing simplicity with information depth
+                        Balancing simplicity with credibility
                     </h2>
 
                     <p>
-                        One of the central challenges was presenting large
-                        amounts of government information without overwhelming
-                        the user.
+                        The biggest design challenge was finding the right
+                        balance between making government information
+                        approachable and keeping enough depth for users who
+                        need detailed information.
                     </p>
 
                     <p>
-                        The design addressed this by separating concise
-                        summaries from more detailed information and by
-                        organizing related content into predictable navigation
-                        paths. The AI assistant concept provided another way
-                        to make dense information easier to approach.
+                        A design that became too simplified risked losing the
+                        credibility and usefulness of the original source,
+                        while a design that remained too dense would recreate
+                        the same problems users experienced with Congress.gov.
+                    </p>
+
+                    <p>
+                        The final direction addressed this through clear
+                        hierarchy, tiered information, simplified navigation,
+                        and features such as AI Help that provide an easier
+                        entry point into complex content.
                     </p>
 
                 </section>
 
 
                 {/* =========================================
-                    11 — FINAL RESULT
-                ========================================== */}
+    11 — FINAL RESULT
+========================================= */}
 
                 <section className="project-section project-result">
 
@@ -571,32 +750,36 @@ function MiniGov({ onNavigate }) {
                     </p>
 
                     <h2>
-                        A more approachable way to explore government
-                        information
+                        A more approachable way to explore government information
                     </h2>
 
                     <p>
-                        MiniGov brought together information architecture,
-                        interface design, interaction design, and development
-                        into a mobile government information concept.
+                        MiniGov transforms the information-heavy experience of
+                        Congress.gov into a mobile-first interface focused on clarity,
+                        hierarchy, and approachability.
                     </p>
 
-                    <div className="project-gallery">
+                    <p>
+                        The final design brings together the research findings,
+                        information architecture, interaction patterns, visual system,
+                        and usability testing into one cohesive experience. The result
+                        is intended to make government information feel less
+                        intimidating while preserving access to the depth users may need.
+                    </p>
 
-                        <img
-                            src={Home}
-                            alt="MiniGov home screen"
-                        />
 
-                        <img
-                            src={Summary}
-                            alt="MiniGov summary screen"
-                        />
+                    <ImageSlider images={resultScreens} />
 
-                        <img
-                            src={Details}
-                            alt="MiniGov details screen"
-                        />
+
+                    <div className="project-links">
+
+                        <a
+                            href="https://www.figma.com/proto/XKVF1M4prpNeISkGuO1JXO/High-Fidelity-Revamp?node-id=44-269&p=f&t=bCEN4p1M0iDrC7VL-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=5%3A232"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            View Interactive Prototype →
+                        </a>
 
                     </div>
 
@@ -618,27 +801,28 @@ function MiniGov({ onNavigate }) {
                     </h2>
 
                     <p>
-                        MiniGov gave me experience working through a product
-                        from early concept exploration and information
-                        architecture through interface design, testing, and
-                        development.
+                        MiniGov taught me how much impact visual and interaction
+                        design can have on how people perceive complex
+                        information. The project was not about adding more
+                        information to Congress.gov, but about creating clearer
+                        paths through the information that already exists.
                     </p>
 
                     <p>
-                        The project reinforced the importance of information
-                        hierarchy when designing for content-heavy
-                        applications. Instead of trying to remove complexity
-                        from the underlying information, the interface can
-                        provide clearer paths through it.
+                        Designing three distinct high-fidelity directions was
+                        especially valuable because it allowed us to test the
+                        overall tone of the product instead of simply refining
+                        one visual approach. User feedback gave us evidence for
+                        choosing a direction that felt modern and approachable
+                        while still maintaining credibility.
                     </p>
 
                     <p>
-                        The AI assistant exploration also demonstrated how
-                        emerging technology can be considered as part of an
-                        interface rather than treated as a separate feature.
-                        In this case, its value came from helping users
-                        understand dense information without preventing access
-                        to the complete source material.
+                        The project also reinforced the importance of designing
+                        for different levels of understanding. Features such
+                        as summaries, detailed information, educational
+                        connections, and AI Help can work together to let users
+                        decide how deeply they want to engage with the subject.
                     </p>
 
                 </section>
