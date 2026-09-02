@@ -2579,3 +2579,85 @@ button {
   font-size: 17px;
   line-height: 1.7;
 }
+
+#projects .project-button {
+  position: relative;
+  isolation: isolate;
+
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 220px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: var(--space-lg);
+
+  border: var(--border-width) solid var(--muted-color);
+  border-radius: var(--corner);
+
+  background: var(--primary-color);
+  color: #ffffff;
+
+  font-family: var(--font-family);
+  font-size: 28px;
+  font-weight: 400;
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* IMAGE */
+#projects .project-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0.15;
+  /* more transparent when not hovered */
+
+  z-index: -1;
+  pointer-events: none;
+
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+#projects .project-button:hover::before {
+  opacity: 0.55;
+  /* stays more visible on hover */
+  transform: scale(1.03);
+}
+
+/* INDIVIDUAL IMAGES */
+#projects .project-button.preserv::before {
+  background-image: url("./assets/Preserv.png");
+}
+
+#projects .project-button.recipe-jungle::before {
+  background-image: url("./assets/RecipeJungle.png");
+}
+
+#projects .project-button.minigov::before {
+  background-image: url("./assets/MiniGovLogo2.png");
+}
+
+#projects .project-button.ucf::before {
+  background-image: url("./assets/UCFCAH.png");
+}
+
+#projects .project-button.graphic-design::before {
+  background-image: url("./assets/POSTER__Moonlight_Paddle__2.png");
+}
