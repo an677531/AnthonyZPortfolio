@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import MiniGovLogo from "../assets/MiniGovLogo.png";
+import MiniGovLogo from "../assets/MiniGovLogo2.png";
 
 import StoryBoard1 from "../assets/StoryBoard1.jpg";
 import StoryBoard2 from "../assets/StoryBoard2.jpg";
@@ -232,14 +232,7 @@ function MiniGov({ onNavigate }) {
                         understanding government information.
                     </p>
 
-                    <div className="MiniGov-logo">
 
-                        <img
-                            src={MiniGovLogo}
-                            alt="MiniGov logo"
-                        />
-
-                    </div>
 
                 </header>
 
@@ -567,6 +560,15 @@ function MiniGov({ onNavigate }) {
                         <img
                             src={ColorPalette}
                             alt="MiniGov color palette showing the project's black, white, gray, and blue color system"
+                        />
+
+                    </div>
+                    <div>
+
+                        <img
+                            className="project-image"
+                            src={MiniGovLogo}
+                            alt="MiniGov logo"
                         />
 
                     </div>
