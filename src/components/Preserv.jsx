@@ -1,3 +1,5 @@
+import PreservArchitecture from "../assets/PreservAppArchitecture.png";
+import PreservScanningWorkflow from "../assets/ScanWork.png";
 function Preserv({ onNavigate }) {
     return (
         <section className="project-page">
@@ -199,7 +201,7 @@ function Preserv({ onNavigate }) {
                     <div className="project-image">
 
                         <img
-                            src="/projects/preserv/architecture.jpg"
+                            src={PreservArchitecture}
                             alt="Preserv server-side architecture diagram"
                         />
 
@@ -318,7 +320,7 @@ function Preserv({ onNavigate }) {
                     <div className="project-image">
 
                         <img
-                            src="/projects/preserv/scanning-workflow.jpg"
+                            src={PreservScanningWorkflow}
                             alt="Preserv barcode scanning workflow diagram"
                         />
 

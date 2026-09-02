@@ -33,7 +33,7 @@ function Projects({ onNavigate }) {
 
                 <button
                     className="project-button"
-                    onClick={() => onNavigate("project-template")}
+                    onClick={() => onNavigate("project-UCF")}
                 >
                     University of Central Florida
                 </button>

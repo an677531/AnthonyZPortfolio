@@ -1,3 +1,4 @@
+import ColorPaletteRecipeJungle from "../assets/RecipeJungleColors.png";
 function RecipeJungle({ onNavigate }) {
     return (
         <section className="project-page">
@@ -205,14 +206,6 @@ function RecipeJungle({ onNavigate }) {
                         management.
                     </p>
 
-                    <div className="project-image">
-
-                        <img
-                            src="/projects/recipe-jungle/architecture.jpg"
-                            alt="Recipe Jungle application structure"
-                        />
-
-                    </div>
 
                 </section>
 
@@ -237,14 +230,6 @@ function RecipeJungle({ onNavigate }) {
                         full recipe view.
                     </p>
 
-                    <div className="project-image">
-
-                        <img
-                            src="/projects/recipe-jungle/wireframes.jpg"
-                            alt="Recipe Jungle wireframes"
-                        />
-
-                    </div>
 
                 </section>
 
@@ -269,31 +254,21 @@ function RecipeJungle({ onNavigate }) {
                         a warm neutral background with tomato red and
                         tropical teal as primary accents.
                     </p>
+                    <div className="project-image">
 
+                        <img
+                            src={ColorPaletteRecipeJungle}
+                        />
+
+                    </div>
+                    <br />
                     <p>
                         Typography combines Noto Serif Display and Libre
                         Bodoni with Fira Sans, Hind Vadodara, and Inter
                         to create separation between editorial content
                         and interface controls.
                     </p>
-
-                    <div className="project-gallery">
-
-                        <img
-                            src="/projects/recipe-jungle/design-01.jpg"
-                            alt="Recipe Jungle visual design"
-                        />
-
-                        <img
-                            src="/projects/recipe-jungle/design-02.jpg"
-                            alt="Recipe Jungle interface design"
-                        />
-
-                    </div>
-
                 </section>
-
-
                 {/* =========================================
                     07 — ITERATION
                 ========================================== */}
@@ -321,16 +296,6 @@ function RecipeJungle({ onNavigate }) {
                         sessions while keeping the project stable as new
                         features were added.
                     </p>
-
-                    <div className="project-image">
-
-                        <img
-                            src="/projects/recipe-jungle/iteration.jpg"
-                            alt="Recipe Jungle development iterations"
-                        />
-
-                    </div>
-
                 </section>
 
 
@@ -369,15 +334,6 @@ function RecipeJungle({ onNavigate }) {
                         Favorites and interface preferences are stored
                         locally so they persist between sessions.
                     </p>
-
-                    <div className="project-image">
-
-                        <img
-                            src="/projects/recipe-jungle/development.jpg"
-                            alt="Recipe Jungle React development"
-                        />
-
-                    </div>
 
                 </section>
 
@@ -438,14 +394,6 @@ function RecipeJungle({ onNavigate }) {
                         responsive application.
                     </p>
 
-                    <div className="project-image project-final-image">
-
-                        <img
-                            src="/projects/recipe-jungle/final.jpg"
-                            alt="Recipe Jungle final interface"
-                        />
-
-                    </div>
 
                     <div className="project-links">
 
