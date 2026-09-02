@@ -263,7 +263,7 @@ function MiniGov({ onNavigate }) {
                         </h3>
 
                         <p>
-                            Team Minerva · Five-person interdisciplinary team
+                            Team Minerva · Three-person interdisciplinary team
                         </p>
 
                     </div>
