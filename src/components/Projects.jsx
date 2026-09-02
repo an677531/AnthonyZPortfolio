@@ -26,7 +26,7 @@ function Projects({ onNavigate }) {
 
                 <button
                     className="project-button"
-                    onClick={() => onNavigate("project-template")}
+                    onClick={() => onNavigate("project-minigov")}
                 >
                     MiniGov
                 </button>

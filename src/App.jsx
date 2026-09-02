@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import RecipeJungle from './components/RecipeJungleProject';
 import Preserv from './components/Preserv';
 import GraphicDesign from './components/GraphicDesign';
+import MiniGov from './components/Minigov';
 function App() {
   const [page, setPage] = useState('home');
 
@@ -27,6 +28,7 @@ function App() {
         {page === 'project-recipe-jungle' && <RecipeJungle onNavigate={setPage} />}
         {page === 'project-preserv' && <Preserv onNavigate={setPage} />}
         {page === 'project-graphic-design' && <GraphicDesign onNavigate={setPage} />}
+        {page === 'project-minigov' && <MiniGov onNavigate={setPage} />}
       </main>
       <Footer />
     </>
